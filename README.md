@@ -2,6 +2,20 @@
 A Simple wrapper for binding the models in [timm](https://github.com/rwightman/pytorch-image-models) library into 
 [detectron2](https://github.com/facebookresearch/detectron2) backbone for training two-stage detectors using `detection2`. This simple library, does not require and changes to either `timm` models or `detectron2`. Whichever model is found in `timm.models.list_models()` is automatically binded to the `detectron2` backbone (including `FPN`).
 
+## Install
+```
+conda create -n detectron2_timm python=3.9
+conda activate detectron2_timm
+
+pip install torch
+pip install git+https://github.com/facebookresearch/detectron2@main
+pip install git+https://github.com/rwightman/pytorch-image-models@main
+
+pip install -e .
+
+```
+
+
 ## Examples
 The following models are already tested.
 - [x] `xcit` &rarr; check the [xcit.ipynb](https://github.com/iKrishneel/detectron2_timm/blob/master/scripts/xcit.ipynb) which shows example of using this library with the [pretrained xcit models](https://github.com/facebookresearch/xcit/tree/master/detection) for evaluation on coco2017 dataset. 

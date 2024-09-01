@@ -33,16 +33,16 @@ MODEL:
         - 304
     FREEZE_AT: 0
     NAME: "build_efficientnetv2_m_fpn_backbone"
-  DEVICE: cuda
-  FPN:
-    FUSE_TYPE: sum
-    IN_FEATURES:
-      - block1
-      - block2
-      - block3
-      - block4
-    NORM: ''
-    OUT_CHANNELS: 256
+  DEVICE: cpu
+  # FPN:
+  #   FUSE_TYPE: sum
+  #   IN_FEATURES:
+  #     - block1
+  #     - block2
+  #     - block3
+  #     - block4
+  #   NORM: ''
+  #   OUT_CHANNELS: 256
 OUTPUT_DIR: "../logs/efficientnetv2_m_fpn/"
 SOLVER:
   BASE_LR: 0.02

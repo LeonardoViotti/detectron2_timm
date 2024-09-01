@@ -24,7 +24,7 @@ MODEL:
       - 32
     FREEZE_AT: 0
     NAME: "build_xcit_medium_24_p8_224_fpn_backbone"
-  DEVICE: cuda
+  DEVICE: cpu
   FPN:
     FUSE_TYPE: sum
     IN_FEATURES:

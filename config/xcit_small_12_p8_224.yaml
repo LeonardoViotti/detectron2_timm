@@ -1,0 +1,51 @@
+_BASE_: "base_no_fpn.yaml"
+MODEL:
+  BACKBONE:
+    CONFIG:
+      OUT_FEATURES:
+      - blocks.3
+      - blocks.5
+      - blocks.7
+      - blocks.11
+      PRETRAINED: false
+      REMAPS:
+      - block4
+      - block6
+      - block8
+      - block12
+      REMOVE_LAYERS:
+      - cls_attn_blocks
+      - norm
+      - head
+      STRIDES:
+      - 4
+      - 8
+      - 16
+      - 32
+    FREEZE_AT: 0
+    NAME: "build_xcit_small_12_p8_224_fpn_backbone"
+  DEVICE: cpu
+  # FPN:
+  #   FUSE_TYPE: sum
+  #   IN_FEATURES:
+  #   - block4
+  #   - block6
+  #   - block8
+  #   - block12
+  #   NORM: ''
+  #   OUT_CHANNELS: 256
+OUTPUT_DIR: "../logs/xcit_small_12_p8_224_fpn/"
+SOLVER:
+  BASE_LR: 0.0001
+  BIAS_LR_FACTOR: 1.0
+  CHECKPOINT_PERIOD: 5000
+  IMS_PER_BATCH: 16
+  MAX_ITER: 90000
+  STEPS:
+  - 60000
+  - 80000
+  WARMUP_FACTOR: 0.05
+  WARMUP_ITERS: 1000
+  WARMUP_METHOD: linear
+  WEIGHT_DECAY: 0.0001
+

@@ -24,6 +24,7 @@ MODEL:
       - 32
     FREEZE_AT: 0
     NAME: "build_xcit_small_12_p8_224_fpn_backbone"
+  DEVICE: cpu
   FPN:
     FUSE_TYPE: sum
     IN_FEATURES:
@@ -47,3 +48,4 @@ SOLVER:
   WARMUP_ITERS: 1000
   WARMUP_METHOD: linear
   WEIGHT_DECAY: 0.0001
+
